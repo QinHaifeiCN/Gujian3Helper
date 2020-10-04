@@ -1,0 +1,47 @@
+﻿<Window x:Class="Gujian3Helper.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Gujian3Helper"
+        xmlns:tk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        FontFamily="Consolas"
+        Title="古剑三修改人物属性" 
+        Height="450" 
+        Width="400"
+        IsEnabled="False"
+        ResizeMode="NoResize"
+        Loaded="Window_Loaded"
+        Closed="Window_Closed">
+    <DockPanel >
+        <tk:PropertyGrid ShowSearchBox="False"
+                         ShowTitle="False"
+                         ShowDescriptionByTooltip="False"
+                         ShowSummary="False"
+                         SelectedObject="{Binding RoleProperty,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type local:MainWindow}}}"
+                         DockPanel.Dock="Top"
+                         Name="propGrid"
+                         Height="380">
+        </tk:PropertyGrid>
+        <StackPanel Orientation="Horizontal"
+                    TextElement.FontFamily="fangsong"
+                    TextElement.FontWeight="Bold"
+                    DockPanel.Dock="Bottom"
+                    HorizontalAlignment="Right"
+                    Margin="0,0,30,0">
+            <RadioButton 
+                         VerticalAlignment="Center"
+                         Name="rabWrite">写入参数</RadioButton>
+            <RadioButton 
+                         VerticalAlignment="Center"
+                         Margin="20,0,0,0"
+                         Name="rabRead"
+                         IsChecked="True">读取参数</RadioButton>
+            <CheckBox 
+                      VerticalAlignment="Center"
+                      Name="chkLockParam"
+                      Margin="20,0,0,0">锁定参数</CheckBox>
+        </StackPanel>
+    </DockPanel>
+</Window>
